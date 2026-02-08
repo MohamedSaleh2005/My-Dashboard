@@ -1,0 +1,41 @@
+"use client"
+import { listitems } from './data'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import Logout from "./Logout"
+interface IsClose {
+    onClose: () => void;
+}
+export default function SideNavigat({ onClose }: IsClose) {
+    const pathname = usePathname()
+    return (
+        <nav>
+
+            <ul className="mt-8 flex flex-col gap-3 ">
+                {listitems.map((item) => {
+                    const isActive = pathname === item.link
+
+                    return (
+                        <li key={item.id} onClick={onClose}>
+                            <Link
+                                href={item.link}
+                                aria-current={isActive ? "page" : undefined}
+                                className={`
+                  flex items-center gap-2 pl-5 py-2 rounded transition-all
+                  ${isActive
+                                        ? "bg-[rgba(75,192,192,0.3)] font-semibold"
+                                        : "hover:bg-[rgba(75,192,192,0.3)] transition-all duration-300"
+                                    }`}
+                            >
+                                {item.icon}
+                                {item.title}
+                            </Link>
+                        </li>
+                    )
+                })}
+               <Logout/>
+            </ul>
+
+        </nav>
+    )
+}

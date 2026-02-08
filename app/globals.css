@@ -1,0 +1,35 @@
+@import "tailwindcss";
+@import "react-loading-skeleton/dist/skeleton.css";
+
+
+.MyFont{
+  font-family: var(--font-Montserrat);
+}
+/* Dark Mode */
+html {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+.light{
+  background-color: rgb(240, 240, 240);
+}
+.dark{
+  background-color: rgb(28, 28, 27);
+  color:rgb(238, 244, 250);
+}
+.Special{
+  background-color: rgb(255, 255, 255);
+}
+.dark .Special{
+  background-color: rgb(37, 37, 37);
+}
+
+/* SkeletonTheme */
+:root {
+  --skeleton-base: #e5e7eb;
+  --skeleton-highlight: #f3f4f6;
+}
+
+.dark {
+  --skeleton-base: #212325;
+  --skeleton-highlight: #374151;
+}
