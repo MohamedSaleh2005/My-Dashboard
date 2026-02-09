@@ -31,8 +31,12 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
 
       const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
 
-      // 11:55 مساءً أو بعدها
-      if (hour === 23 && minutes >= 55 && lastSnapshotDay !== todayKey) {
+      // بما ان موقع الى الداتا اللى مستخدمو بيحدث الاسعار كل يوم الساعه اتنين بليل بتوقيت مصر
+      const isSnapshotTime = hour === 1 && minutes >= 55;                   
+      const alreadySavedToday = lastSnapshotDay === todayKey;
+
+      if ((!lastSnapshotDay || isSnapshotTime) && !alreadySavedToday) {
+
         const newSnapshot: Record<string, number> = {};
 
         cards.forEach((card) => {
@@ -51,8 +55,10 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
       }
     };
 
-    // فحص كل دقيقة
-    const interval = setInterval(checkAndSaveSnapshot, 60 * 1000);
+
+    checkAndSaveSnapshot();
+    const interval = setInterval(checkAndSaveSnapshot, 30 * 1000);
+
 
     // فحص فوري عند تشغيل الموقع
     checkAndSaveSnapshot();
