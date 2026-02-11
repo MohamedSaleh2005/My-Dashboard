@@ -30,6 +30,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "Components/LayoutBox"  ],
+, "Components/_LayoutBox"  ],
   "exclude": ["node_modules"]
 }

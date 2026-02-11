@@ -1,18 +1,5 @@
-import Dashboard from "@/Components/Dashboard/Dashboard";
-import { DataProvider } from "@/app/DataContext";
-
+import Dashboard from "@/Components/_Dashboard/Dashboard";
 
 export default function Home() {
-  return (
-    <div>
-      <DataProvider>
-
-
-        <Dashboard />
-
-        
-      </DataProvider>
-
-    </div>
-  );
+  return ( <Dashboard /> );
 }

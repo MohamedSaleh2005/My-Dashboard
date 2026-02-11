@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import {  Montserrat } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
-import LayoutBox from "@/Components/LayoutBox/LayoutBox";
+import LayoutBox from "@/Components/_LayoutBox/LayoutBox";
+import { DataProvider } from "./DataContext";
 
 const montserrat = Montserrat({
   variable: "--font-Montserrat",
   subsets: ["latin"],
-  weight: ["300" , "500" , "700"]
+  weight: ["300", "500", "700"]
 });
 
 
@@ -22,10 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-        <head>
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
           (function () {
             try {
               const theme = localStorage.getItem("DarkMode");
@@ -39,14 +40,16 @@ export default function RootLayout({
             } catch (e) {}
           })();
         `,
-      }}
-    />
-  </head>
+          }}
+        />
+      </head>
       <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
-          <LayoutBox>
-        {children}
-          </LayoutBox>
-        
+        <LayoutBox>
+          <DataProvider>
+            {children}
+          </DataProvider>
+        </LayoutBox>
+
       </body>
     </html>
   );

@@ -13,7 +13,7 @@ type BaseItem = {
 type SidebarItem = BaseItem & {
     title: string
 }
-
+//Side Bar
 export const listitems: SidebarItem[] = [
     { id: 1, title: "Dashboard", link: "/", icon: <MdDashboardCustomize />, },
     { id: 2, title: "Converter", link: "/converter", icon: <MdChangeCircle />, },
@@ -26,7 +26,7 @@ export const listitems: SidebarItem[] = [
 type NavItem = BaseItem & {
     label: string
 }
-
+//Nav Bar
 export const navitems: NavItem[] = [
     { id: 2, link: "/settings", label: "Settings", icon: <IoSettingsSharp /> },
     { id: 3, link: "/register", label: "Register", icon: <IoPersonAddSharp /> },

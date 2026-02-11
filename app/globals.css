@@ -33,3 +33,28 @@ html {
   --skeleton-base: #212325;
   --skeleton-highlight: #374151;
 }
+/* Currency Converter */
+/* إزالة الأسهم من input number */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.Close{
+  clip-path: polygon(0 0 , 100% 0 , 100% 0 , 0 0);
+  transition: all 0.3s ease;
+}
+.Open{
+  clip-path: polygon(0 0 , 100% 0 , 100% 100% , 0 100%);
+   transition: all 0.3s ease;
+}
+/* Conversion History */
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}

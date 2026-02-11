@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { cards } from "./tybe";
-
+//علشان اعمل التريند بشكل صحيح محتاج باك اند فنا عملتو هنا اقرب شئ للحقيقي
 export function useCurrencySnapshot(rates: Record<string, number>) {
   const [oldPrices, setOldPrices] = useState<Record<string, number>>({});
 
@@ -18,21 +18,20 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
     }
   }, []);
 
-  // إنشاء snapshot يوميًا الساعة 11:55 مساءً
+  // snapshot يوميًا الساعة 1:55 صباحا
   useEffect(() => {
     if (!rates) return;
 
     const checkAndSaveSnapshot = () => {
       const now = new Date();
 
-      const hour = now.getHours();
-      const minutes = now.getMinutes();
+      const hour = now.getHours();    
       const todayKey = now.toDateString();
 
       const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
 
       // بما ان موقع الى الداتا اللى مستخدمو بيحدث الاسعار كل يوم الساعه اتنين بليل بتوقيت مصر
-      const isSnapshotTime = hour === 1 && minutes >= 55;                   
+      const isSnapshotTime = hour === 24 ;                   
       const alreadySavedToday = lastSnapshotDay === todayKey;
 
       if ((!lastSnapshotDay || isSnapshotTime) && !alreadySavedToday) {
