@@ -2,6 +2,7 @@ import CurrencyConverter from './CurrencyConverter'
 import MarketNews from './MarketNews'
 import ConverHistory from './ConverHistory'
 import ThemeButton from '../_Dashboard/ThemeButton'
+import { CurrencyProvider } from './DataContext'
 
 export default function Converter() {
   return (
@@ -15,15 +16,17 @@ export default function Converter() {
 
         <ThemeButton />
       </div>
+      <CurrencyProvider> 
+        <div className='md:flex items-center gap-5'>
+          <CurrencyConverter />
+          <MarketNews />
+        </div>
 
-      <div className='md:flex items-center gap-5'>
-        <CurrencyConverter />
-        <MarketNews />
-      </div>
+        <div>
+          <ConverHistory />
+        </div>
+      </CurrencyProvider>
 
-      <div>
-        <ConverHistory />
-      </div>
     </main>
   )
 }

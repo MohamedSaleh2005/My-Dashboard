@@ -1,4 +1,4 @@
-import { news } from "./Data";
+import { news } from "./type";
 
 type News = {
   id: number;
