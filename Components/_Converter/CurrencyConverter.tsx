@@ -17,7 +17,7 @@ export default function CurrencyConverter() {
 
       <div className="mt-3 flex items-center justify-between m-auto w-[95%]">
 
-        <AmountConverter  />
+        <AmountConverter />
         <p className=" text-sm mt-5"><FaArrowRightArrowLeft /></p>
         <ToConverter />
 

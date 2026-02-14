@@ -16,18 +16,21 @@ export default function Dashboard() {
                     <h2 className='MyFont font-bold'>Dashboard</h2>
                     <p className='text-sm'>Live Exchange rates and market analytics</p>
                 </div>
-                <ThemeButton />
+                
+                <div>
+                    <ThemeButton />
+                </div>
             </div>
-       
+
             <div className='md:flex items-center gap-5'>
                 <Cards />
-                <SmallTable  />
+                <SmallTable />
             </div>
             <div className='md:flex items-center gap-5'>
-                <Chart  />
-                <Pie  />
+                <Chart />
+                <Pie />
             </div>
-            
+
         </main>
     )
 }

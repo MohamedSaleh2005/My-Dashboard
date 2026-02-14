@@ -30,16 +30,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
             .finally(() => setLoading(false));
     }, []);
 
-       // useEffect(() => {
-        
-      
-    //     fetch("https://api.currencyfreaks.com/v2.0/supported-currencies?apikey=5439da6617e5450bbd55ec22a3e0065a")
-    //         .then(res => res.json())
-    //         .then(data => setData(data))
-    //         .catch(err => console.error(err));
-            
-            
-    //     }, [])
+ 
 
     return (
         <DataContext.Provider value={{ rates, loading }}>
