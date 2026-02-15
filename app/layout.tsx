@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import LayoutBox from "@/Components/_LayoutBox/LayoutBox";
 import { DataProvider } from "./DataContext";
+import { FavouriteProvider } from "@/Components/_Favourite/FavouriteContext";
 
 const montserrat = Montserrat({
   variable: "--font-Montserrat",
@@ -46,7 +47,9 @@ export default function RootLayout({
       <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
         <LayoutBox>
           <DataProvider>
-            {children}
+            <FavouriteProvider>
+              {children}
+            </FavouriteProvider>
           </DataProvider>
         </LayoutBox>
 

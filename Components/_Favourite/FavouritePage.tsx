@@ -1,14 +1,13 @@
-import ThemeButton from "../_Dashboard/ThemeButton";
-import { FavouriteProvider } from "../_Favourite/FavouriteContext";
-import Table from "./Table";
+import React from 'react'
+import ThemeButton from '../_Dashboard/ThemeButton'
+import FavouriteCurrencies from './FavouriteCurrencies'
 
-
-export default function CurrenciesPage() {
+export default function Favourite() {
     return (
-        <div className=" px-4 mt-15 w-full h-120">
+        <div className='px-4 mt-15 w-full h-120'>
             <div className='flex justify-between items-center'>
                 <div>
-                    <h2 className='MyFont font-bold'>Currencies Table</h2>
+                    <h2 className='MyFont font-bold'>Favourite Currencies</h2>
                     <p className='text-sm'>Live Exchange rates and market analytics</p>
                 </div>
 
@@ -18,10 +17,9 @@ export default function CurrenciesPage() {
             </div>
 
             <div>
-
-                <Table />
-
+                <FavouriteCurrencies/>
             </div>
+
         </div>
     )
 }
