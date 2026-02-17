@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image"
 import { cards } from "./tybe"
-import { useCurrencySnapshot } from "./TrendHook"
+import { useCurrencySnapshot } from "../../app/TrendHook"
 import { useCurrency } from "../../app/DataContext"
 import Skeleton from "react-loading-skeleton"
 import "react-loading-skeleton/dist/skeleton.css"

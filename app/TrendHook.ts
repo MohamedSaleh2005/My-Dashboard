@@ -1,35 +1,34 @@
 "use client";
 import { useEffect, useState } from "react";
-import { cards } from "./tybe";
+import { cards } from "../Components/_Dashboard/tybe";
 
 export function useCurrencySnapshot(rates: Record<string, number>) {
   const [oldPrices, setOldPrices] = useState<Record<string, number>>({});
 
+  // قراءة snapshot القديم
   useEffect(() => {
-    const storedOldPrices = localStorage.getItem("old_prices");
-    if (storedOldPrices) {
+    const stored = localStorage.getItem("old_prices");
+    if (stored) {
       try {
-        setOldPrices(JSON.parse(storedOldPrices));
+        setOldPrices(JSON.parse(stored));
       } catch {
         setOldPrices({});
       }
     }
   }, []);
 
+  // حفظ snapshot مرة يوميًا الساعة 11
   useEffect(() => {
     if (!rates) return;
 
-    const checkAndSaveSnapshot = () => {
+    const saveSnapshotIfNeeded = () => {
       const now = new Date();
       const hour = now.getHours();
       const todayKey = now.toDateString();
 
       const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
 
-      const isSnapshotTime = hour === 23;
-      const alreadySavedToday = lastSnapshotDay === todayKey;
-
-      if (isSnapshotTime && !alreadySavedToday) {
+      if (hour === 23 && lastSnapshotDay !== todayKey) {
         const newSnapshot: Record<string, number> = {};
 
         cards.forEach((card) => {
@@ -42,13 +41,12 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
         localStorage.setItem("last_snapshot_day", todayKey);
 
         setOldPrices(newSnapshot);
-        console.log("Snapshot saved:", newSnapshot);
       }
     };
 
-    checkAndSaveSnapshot();
-    const interval = setInterval(checkAndSaveSnapshot, 30000);
+    saveSnapshotIfNeeded();
 
+    const interval = setInterval(saveSnapshotIfNeeded, 30000);
     return () => clearInterval(interval);
   }, [rates]);
 

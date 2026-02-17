@@ -3,9 +3,9 @@
 import { useCurrency } from '@/app/DataContext'
 import { useEffect, useState } from 'react'
 import Pagination from './Pagination'
-import { useCurrencySnapshot } from './TrendPrice'
 import TableHeader from './TableHeader'
 import CurrencyList from './CurrencyList'
+import { useCurrencySnapshot } from '../../app/TrendHook'
 
 type Currency = {
   currencyCode: string
@@ -29,7 +29,7 @@ export default function Table() {
   const [SearchTrem, setSearchTrem] = useState<string>("")
 
   const { rates } = useCurrency()
-  const oldPrices = useCurrencySnapshot(Data, rates)
+  const oldPrices = useCurrencySnapshot (rates)
 
   // Fetch currencies
   useEffect(() => {
