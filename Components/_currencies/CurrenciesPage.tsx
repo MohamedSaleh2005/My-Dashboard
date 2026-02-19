@@ -1,11 +1,13 @@
 import ThemeButton from "../_Dashboard/ThemeButton";
 import { FavouriteProvider } from "../_Favourite/FavouriteContext";
 import Table from "./Table";
+import { TableProvider } from "./TableContext";
 
 
 export default function CurrenciesPage() {
     return (
         <div className=" px-4 mt-15 w-full h-120">
+            
             <div className='flex justify-between items-center'>
                 <div>
                     <h2 className='MyFont font-bold'>Currencies Table</h2>
@@ -18,8 +20,9 @@ export default function CurrenciesPage() {
             </div>
 
             <div>
-
-                <Table />
+                <TableProvider>
+                    <Table />
+                </TableProvider>
 
             </div>
         </div>

@@ -16,41 +16,45 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
     }
   }, []);
 
-  useEffect(() => {
-    if (!rates) return;
+ useEffect(() => {
+  if (!rates || Object.keys(rates).length === 0) return;
 
-    const checkAndSaveSnapshot = () => {
-      const now = new Date();
-      const hour = now.getHours();
-      const todayKey = now.toDateString();
+  const checkAndSaveSnapshot = () => {
+    const now = new Date();
+    const hour = now.getHours();
+    const todayKey = now.toDateString();
 
-      const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
+    const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
 
-      const isSnapshotTime = hour === 23;
-      const alreadySavedToday = lastSnapshotDay === todayKey;
+    const isSnapshotTime = hour === 23;
+    const alreadySavedToday = lastSnapshotDay === todayKey;
 
-      if (isSnapshotTime && !alreadySavedToday || !lastSnapshotDay) {
-        const newSnapshot: Record<string, number> = {};
+    if ((isSnapshotTime && !alreadySavedToday) || !lastSnapshotDay) {
+      const newSnapshot: Record<string, number> = {};
 
-        cards.forEach((card) => {
-          const rate = rates[card.price];
-          if (!rate) return;
-          newSnapshot[card.id] = 1 / rate;
-        });
+      cards.forEach((card) => {
+        const rate = rates[card.price];
+        if (!rate) return;
+        newSnapshot[card.id] = 1 / rate;
+      });
 
+      
+      if (Object.keys(newSnapshot).length > 0) {
         localStorage.setItem("old_prices", JSON.stringify(newSnapshot));
         localStorage.setItem("last_snapshot_day", todayKey);
 
         setOldPrices(newSnapshot);
         console.log("Snapshot saved:", newSnapshot);
       }
-    };
+    }
+  };
 
-    checkAndSaveSnapshot();
-    const interval = setInterval(checkAndSaveSnapshot, 30000);
+  checkAndSaveSnapshot();
+  const interval = setInterval(checkAndSaveSnapshot, 30000);
 
-    return () => clearInterval(interval);
-  }, [rates]);
+  return () => clearInterval(interval);
+}, [rates]);
+
 
   return oldPrices;
 }

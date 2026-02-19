@@ -1,27 +1,34 @@
 "use client"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6"
+import { useTableContext } from "./TableContext"
 
 type Props<T> = {
-  data: T[]
   itemsPerPage?: number
-  children: (paginatedData: T[]) => React.ReactNode
+  children: (data: T[]) => React.ReactNode
 }
 
 export default function Pagination<T>({
-  data,
   itemsPerPage = 60,
   children
 }: Props<T>) {
 
+  const { filteredData } = useTableContext() as any
+
   const [currentPage, setCurrentPage] = useState(1)
 
-  const totalPages = Math.ceil(data.length / itemsPerPage)
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage)
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [filteredData])
 
   const startIndex = (currentPage - 1) * itemsPerPage
-  const paginatedData = data.slice(startIndex, startIndex + itemsPerPage)
+  const paginatedData = filteredData.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  )
 
-  // 👇 هنا الجزء الجديد
   const visiblePages = 3
 
   let startPage = Math.max(currentPage - 1, 1)
@@ -44,8 +51,8 @@ export default function Pagination<T>({
         <div className='mt-4 flex justify-center gap-4 text-sm'>
 
           <span
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             className='bg-[rgba(75,192,192,0.18)] px-3 py-1 rounded-sm cursor-pointer'
-            onClick={() => setCurrentPage(Math.max(currentPage - 1, 1))}
           >
             <FaAnglesLeft />
           </span>
@@ -65,8 +72,10 @@ export default function Pagination<T>({
           ))}
 
           <span
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             className='bg-[rgba(75,192,192,0.18)] px-3 py-1 rounded-sm cursor-pointer'
-            onClick={() => setCurrentPage(Math.min(currentPage + 1, totalPages))}
           >
             <FaAnglesRight />
           </span>

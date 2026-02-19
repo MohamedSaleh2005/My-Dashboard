@@ -1,8 +1,8 @@
 "use client"
-import { listitems } from './data'
+import { listitems } from './type'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-import Logout from "./Logout"
+
 interface IsClose {
     onClose: () => void;
 }
@@ -29,7 +29,7 @@ export default function SideNavigat({ onClose }: IsClose) {
                         </li>
                     )
                 })}
-                <Logout />
+               
             </ul>
 
         </nav>

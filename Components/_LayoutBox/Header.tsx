@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { navitems } from './data'
+import { navitems } from './type'
 import DarkMode from './DarkMode';
 import { MdOutlinePlaylistPlay } from 'react-icons/md';
 import { useMemo } from 'react';

@@ -25,7 +25,6 @@ const FavouriteContext = createContext<FavouriteContextType | undefined>(undefin
 export function FavouriteProvider({ children }: { children: ReactNode }) {
   const [favourites, setFavourites] = useState<CurrencyItem[]>([])
 
-  // نقرأ من localStorage أول ما الكمبوننت يتحمل
   useEffect(() => {
     const stored = localStorage.getItem("favourites")
     if (stored) {
@@ -37,7 +36,7 @@ export function FavouriteProvider({ children }: { children: ReactNode }) {
     }
   }, [])
 
-  // نحدث localStorage كل مرة favourites تتغير
+
   useEffect(() => {
     localStorage.setItem("favourites", JSON.stringify(favourites))
   }, [favourites])

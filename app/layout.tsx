@@ -45,9 +45,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
-        <LayoutBox>
-          <DataProvider>
-            <FavouriteProvider>
+        <LayoutBox> {/* to all*/}
+          <DataProvider>    {/* to all Component Curr*/}
+            <FavouriteProvider>      {/* to Favourite & currencies */}
               {children}
             </FavouriteProvider>
           </DataProvider>

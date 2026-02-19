@@ -1,16 +1,14 @@
 "use client"
 import SearchBox from "./SearchBox"
+import { useTableContext } from "./TableContext"
 
-type Props = {
-    search: string
-    setSearch: (value: string) => void
-}
+export default function TableHeader() {
+    const { searchTerm, setSearchTerm } = useTableContext()
 
-export default function TableHeader({ search, setSearch }: Props) {
     return (
         <div className="flex justify-between text-sm text-gray-400">
             <h3>All Currenices Here</h3>
-            <SearchBox value={search} onChange={setSearch} />
+            <SearchBox value={searchTerm} onChange={setSearchTerm} />
         </div>
     )
 }
