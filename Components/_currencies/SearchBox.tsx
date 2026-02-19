@@ -8,7 +8,7 @@ type Props = {
 
 export default function SearchBox({ value, onChange }: Props) {
     return (
-        <div className="flex items-center border px-2 border-[rgba(75,192,192,0.32)] rounded-3xl">
+        <div className="flex items-center border px-2 border-[rgba(75,192,192,0.32)] rounded-3xl w-45">
             <span>
                 <IoSearchOutline />
             </span>

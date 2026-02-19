@@ -14,12 +14,12 @@ export default function FavouriteCurrencies() {
         return <p className="text-gray-400 mt-4">No favourites yet</p>
 
     return (
-        <div className="flex flex-col gap-7 mt-4 h-170 md:h-115 overflow-y-scroll overflow-x-hidden no-scrollbar">
+        <div className="flex flex-col md:flex-row md:flex-wrap  gap-7 mt-4 h-170 md:h-auto overflow-y-scroll overflow-x-hidden no-scrollbar">
             {favourites.map((item) => {
                 const price: number = rates?.[item.name.currencyCode] ? 1 / rates[item.name.currencyCode] : 0
 
                 return (
-                    <div key={item.code} className="rounded-xl h-25 py-3 px-4 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-102 transition-all duration-300 flex flex-col justify-between">
+                    <div key={item.code} className="rounded-xl h-25  md:w-90 py-3 px-4 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-102 transition-all duration-300 flex flex-col justify-between">
 
                         {/* Header: icon + currency code + status */}
                         <div className="flex items-center justify-between text-sm text-gray-400">
