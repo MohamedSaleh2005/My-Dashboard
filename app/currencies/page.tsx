@@ -1,4 +1,5 @@
-import CurrenciesPage from '@/Components/_Currencies/CurrenciesPage'
+import CurrenciesPage from "@/Components/_Currencies/CurrenciesPage";
+
 
 
 export default function page() {
