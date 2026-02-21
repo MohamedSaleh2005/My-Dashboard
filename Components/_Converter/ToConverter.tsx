@@ -1,4 +1,5 @@
 "use client"
+import { useTranslation } from "react-i18next";
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { FaAngleDown } from 'react-icons/fa'
@@ -15,6 +16,7 @@ type CurItem = {
 }
 
 export default function ToConverter() {
+    const { t } = useTranslation();
     const { rates } = useCurrency()
     const [Opening, setOpening] = useState<boolean>(false)
 
@@ -45,7 +47,9 @@ export default function ToConverter() {
 
     return (
         <div className="flex flex-col w-[40%]">
-            <p className="text-sm">To</p>
+           
+
+<p className="text-sm">{t("to")}</p>
 
             <div className="relative">
                 <div className="Special border-gray-400/60 border p-2 text-sm flex justify-between items-center rounded-sm mt-1">

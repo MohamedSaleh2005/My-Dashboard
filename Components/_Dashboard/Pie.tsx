@@ -4,16 +4,16 @@ import { Doughnut } from 'react-chartjs-2'
 import { useCurrency } from '../../app/DataContext'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useTranslation } from 'react-i18next'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
 
 export default function PieChart() {
   const { rates, loading } = useCurrency()
+  const { t } = useTranslation()
 
-  
   const labels = ['EUR', 'CHF', 'SGD', 'GBP', 'AUD']
 
-  
   const values = loading
     ? [0, 0, 0, 0, 0]
     : [
@@ -28,7 +28,7 @@ export default function PieChart() {
     labels,
     datasets: [
       {
-        label: 'USD Index',
+        label: t("usdIndex"),
         data: values,
         backgroundColor: [
           'rgba(59, 130, 246, 0.45)',
@@ -68,7 +68,9 @@ export default function PieChart() {
 
   return (
     <div className="Special md:h-70 mt-4 md:w-70 pt-2 rounded-xl m-auto flex flex-col">
-      <h3 className="text-sm m-auto pb-3 text-gray-400">Top Five Currency</h3>
+      <h3 className="text-sm m-auto pb-3 text-gray-400">
+        {t("topFiveCurrencies")}
+      </h3>
 
       <div className="px-7 pb-7 flex justify-center items-center">
         {loading ? (

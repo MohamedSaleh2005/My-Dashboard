@@ -3,10 +3,12 @@ import { useTableContext } from "./TableContext";
 import Skeleton from "react-loading-skeleton";
 import AddFavourite from "../_Favourite/AddFavourite";
 import { useDailyRatesSnapshot } from "./PriceHook";
+import { useTranslation } from "react-i18next";
 
 type trends = "up" | "down" | "same";
 
 export default function CurrencyRow({ item }: { item: any }) {
+  const { t } = useTranslation();
   const { rates, loading } = useTableContext();
   const { getOldPrice } = useDailyRatesSnapshot(rates ?? {});
 
@@ -27,7 +29,7 @@ export default function CurrencyRow({ item }: { item: any }) {
       </span>
       <span className='w-10 truncate block mr-4'> {item.name.currencyCode} </span>
       <span className='w-10 mr-5 md:mr-0'> {price.toFixed(4)}$ </span>
-      <span className='w-10 md:w-14 truncate block'> {item.name.status} </span>
+      <span className='w-10 md:w-14 truncate block'> {t(item.name.status)}</span>
 
       <span
         className={`w-15 ${

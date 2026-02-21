@@ -1,9 +1,12 @@
+
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import LayoutBox from "@/Components/_LayoutBox/LayoutBox";
 import { DataProvider } from "./DataContext";
 import { FavouriteProvider } from "@/Components/_Favourite/FavouriteContext";
+import { I18nProvider } from "./LanguageTransitionContext";
+import { ThemeProvider } from "./ThemeContext";
 
 const montserrat = Montserrat({
   variable: "--font-Montserrat",
@@ -45,14 +48,18 @@ export default function RootLayout({
         />
       </head>
       <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
-        <LayoutBox> {/* to all*/}
-          <DataProvider>    {/* to all Component Curr*/}
-            <FavouriteProvider>      {/* to Favourite & currencies */}
-              {children}
-            </FavouriteProvider>
-          </DataProvider>
-        </LayoutBox>
 
+          <ThemeProvider>
+        <I18nProvider>
+          <LayoutBox> {/* to all*/}
+            <DataProvider>    {/* to all Component Curr*/}
+              <FavouriteProvider>      {/* to Favourite & currencies */}
+                {children}
+              </FavouriteProvider>
+            </DataProvider>
+          </LayoutBox>
+        </I18nProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

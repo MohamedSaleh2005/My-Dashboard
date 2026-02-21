@@ -18,7 +18,7 @@ export const CurItems = [
 
 // Market News
 export const news = [
-    {id: 1 , text: "The US dollar strengthened against major currencies following stronger manufacturing data and stable treasury yields."},
-    {id: 2 , text: "Analysts expect the dollar to weaken slightly as inflation slows and interest rate cuts approach."},
-    {id: 3 , text: "Global investors increased demand for dollar assets amid geopolitical tensions and uncertain emerging market growth."},
-]
+  { id: 1, key: "news1" },
+  { id: 2, key: "news2" },
+  { id: 3, key: "news3" },
+];

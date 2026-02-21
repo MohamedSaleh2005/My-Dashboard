@@ -65,9 +65,3 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Settings */
-.dark .Btn_Dark{
-  background-color: #4daca767;
-}
-.dark .Btn_Dark_toggle{
-  transform: translatex(27);
-}

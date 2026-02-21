@@ -1,24 +1,19 @@
 "use client"
 import { useEffect, useState } from "react"
 import { MdDarkMode, MdLightMode } from "react-icons/md"
+import { useTranslation } from "react-i18next"
 
 export default function ThemeButton() {
-  const [theme, setTheme] = useState<string>("")
+  const [isDark, setIsDark] = useState<boolean>(false)
+  const { t } = useTranslation()
 
   useEffect(() => {
-    
     const updateTheme = () => {
-      if (document.documentElement.classList.contains("dark")) {
-        setTheme("Dark Mode")
-      } else {
-        setTheme("Light Mode")
-      }
+      setIsDark(document.documentElement.classList.contains("dark"))
     }
 
-    // أول قراءة
     updateTheme()
 
-    // مراقبة أي تغيير في class
     const observer = new MutationObserver(updateTheme)
 
     observer.observe(document.documentElement, {
@@ -30,9 +25,9 @@ export default function ThemeButton() {
   }, [])
 
   return (
-    <span className="border border-gray-500 py-1 pl-3 w-35 mb-3 flex items-center gap-2  rounded-2xl shadow MyFont text-sm">
-      {theme === "Dark Mode" ? <MdDarkMode /> : <MdLightMode />}
-      {theme === "Dark Mode" ? "Dark Mode" : "Light Mode"}
+    <span className="border border-gray-500 py-1 pl-3 w-35 md:w-auto md:px-4 mb-3 flex items-center gap-2 rounded-2xl shadow MyFont text-sm">
+      {isDark ? <MdDarkMode /> : <MdLightMode />}
+      {isDark ? t("darkMode") : t("lightMode")}
     </span>
   )
 }

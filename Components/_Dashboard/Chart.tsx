@@ -4,15 +4,16 @@ import { Bar } from 'react-chartjs-2'
 import { useCurrency } from '../../app/DataContext'
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { useTranslation } from 'react-i18next'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
 export default function Chart() {
   const { rates, loading } = useCurrency()
+  const { t } = useTranslation()
 
   const labels = ['EUR', 'GBP', 'CAD', 'AUD', 'SGD', 'NZD', 'CHF']
 
-  
   const values = loading
     ? Array(labels.length).fill(0)
     : [
@@ -29,7 +30,7 @@ export default function Chart() {
     labels,
     datasets: [
       {
-        label: '',
+        label: t("usdCurrency"),
         data: values,
         backgroundColor: 'rgba(75, 192, 192, 0.7)',
       },
@@ -41,7 +42,7 @@ export default function Chart() {
     maintainAspectRatio: false,
     plugins: {
       legend: { display: false, position: 'top' as const },
-      title: { display: false, text: 'USD currency' },
+      title: { display: false, text: t("usdCurrency") },
     },
     scales: {
       x: { grid: { color: 'rgba(200, 200, 200, 0.3)' } },
@@ -59,16 +60,21 @@ export default function Chart() {
 
   return (
     <section className="Special pb-10 pt-3 h-70 md:w-[75%] mt-5 shadow-[rgba(75,192,192,0.3)] shadow rounded-xl">
-      <div className="flex justify-between text-gray-400 text-sm px-4 pb-2 ">
-        <h3>Market Trends</h3>
-        <span>Updated just now</span>
+      <div className="flex justify-between text-gray-400 text-sm px-4 pb-2">
+        <h3>{t("marketTrends")}</h3>
+        <span>{t("updatedJustNow")}</span>
       </div>
 
       {loading ? (
-      
         <div className="w-full h-60 flex justify-around items-end gap-2 px-4">
           {labels.map((i) => (
-            <Skeleton key={i} width={40} height={200} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
+            <Skeleton
+              key={i}
+              width={40}
+              height={200}
+              baseColor="var(--skeleton-base)"
+              highlightColor="var(--skeleton-highlight)"
+            />
           ))}
         </div>
       ) : (
