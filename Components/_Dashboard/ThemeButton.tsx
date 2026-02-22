@@ -25,7 +25,7 @@ export default function ThemeButton() {
   }, [])
 
   return (
-    <span className="border border-gray-500 py-1 pl-3 w-35 md:w-auto md:px-4 mb-3 flex items-center gap-2 rounded-2xl shadow MyFont text-sm">
+    <span className="border border-gray-500 py-1 w-auto px-4 mb-3 flex items-center gap-2 rounded-2xl shadow MyFont text-sm">
       {isDark ? <MdDarkMode /> : <MdLightMode />}
       {isDark ? t("darkMode") : t("lightMode")}
     </span>

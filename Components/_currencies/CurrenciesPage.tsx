@@ -1,6 +1,5 @@
 "use client";
 import ThemeButton from "../_Dashboard/ThemeButton";
-import { FavouriteProvider } from "../_Favourite/FavouriteContext";
 import Table from "./Table";
 import { TableProvider } from "./TableContext";
 import { useTranslation } from "react-i18next";
