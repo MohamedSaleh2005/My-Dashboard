@@ -1,4 +1,3 @@
-"use client";
 import CurrencyRow from "./CurrencyRow";
 import SkeletonRow from "./SkeletonRow";
 import { useTableContext } from "./TableContext";

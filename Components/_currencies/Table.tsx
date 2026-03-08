@@ -1,5 +1,3 @@
-"use client";
-
 import Pagination from "./Pagination";
 import TableHeader from "./TableHeader";
 import CurrencyList from "./CurrencyList";

@@ -20,25 +20,26 @@ const montserrat = Montserrat({
 export const metadata: Metadata = {
   title: "Crypto Dashboard",
   description: "Real-time cryptocurrency dashboard built with Next.js",
+  icons: "icon.png"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider>     {/* Auth */}
       <html lang="en" suppressHydrationWarning>
         <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
 
-          <ThemeProvider>
-            <I18nProvider>
-                <DataProvider>
-                  <FavouriteProvider>
-                    <NotificationProvider>
-              <LayoutBox>
+          <ThemeProvider>                {/* to all */}
+            <I18nProvider>               {/* to all */}
+              <DataProvider>             {/* to any rates...  */}
+                <FavouriteProvider>      {/* to favourite & currencies */}
+                  <NotificationProvider> {/* to alert & notificions */}
+                    <LayoutBox>          {/* to all */}
                       {children}
-              </LayoutBox>
-                    </NotificationProvider>
-                  </FavouriteProvider>
-                </DataProvider>
+                    </LayoutBox>
+                  </NotificationProvider>
+                </FavouriteProvider>
+              </DataProvider>
             </I18nProvider>
           </ThemeProvider>
         </body>

@@ -1,10 +1,10 @@
 "use client"
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-// نوع البيانات
+
 type Rates = Record<string, number>;
 
-// نوع الـ Context
+
 type DataContextType = {
     rates: Rates;
     loading: boolean;

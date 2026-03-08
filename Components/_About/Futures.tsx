@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export default function AboutFuture() {
@@ -8,8 +6,8 @@ export default function AboutFuture() {
   return (
     <section className="pt-6 space-y-4">
 
-      {/* Title */}
-      <h4 className="MyFont text-2xl ">
+      {/* Title Head*/}
+      <h4 className="MyFont text-2xl">
         {t("about.future.title")}
       </h4>
 

@@ -1,8 +1,6 @@
 "use client"
-
 import { createContext, useContext, useEffect, useState } from "react"
 import { useCurrency } from "@/app/DataContext"
-
 
 type Currency = {
   currencyCode: string
@@ -27,7 +25,6 @@ type TableContextType = {
   setSearchTerm: (val: string) => void
   filteredData: CurrencyItem[]
   rates: any
-  
   favourites: CurrencyItem[]
   setFavourites: React.Dispatch<React.SetStateAction<CurrencyItem[]>>
 }
@@ -39,7 +36,6 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState("")
   const [favourites, setFavourites] = useState<CurrencyItem[]>([])
-
   const { rates } = useCurrency()
  
 
@@ -96,6 +92,6 @@ export const TableProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useTableContext = () => {
   const context = useContext(TableContext)
-  if (!context) throw new Error("useTableContext must be used داخل TableProvider")
+  if (!context) throw new Error("useTableContext must be used TableProvider")
   return context
 }

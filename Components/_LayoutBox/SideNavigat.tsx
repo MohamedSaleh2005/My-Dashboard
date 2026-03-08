@@ -1,4 +1,3 @@
-"use client";
 import { listitems } from './type';
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
@@ -20,18 +19,10 @@ export default function SideNavigat({ onClose }: IsClose) {
 
           return (
             <li key={item.id} onClick={onClose}>
-              <Link
-                href={item.link}
-                aria-current={isActive ? "page" : undefined}
-                className={`flex items-center gap-2 pl-5 py-2 rounded transition-all my-2
-                  ${isActive
-                      ? "bg-[rgba(75,192,192,0.3)] font-semibold"
-                      : "hover:bg-[rgba(75,192,192,0.3)] transition-all duration-300"
-                  }`}
+              <Link href={item.link} className={`flex items-center gap-2 pl-5 py-2 rounded transition-all my-2
+                  ${isActive ? "bg-[rgba(75,192,192,0.3)] font-semibold" : "hover:bg-[rgba(75,192,192,0.3)] transition-all duration-300"}`}
               >
-                {item.icon}
-                {/* الترجمة هنا */}
-                {t(item.title)}
+                {item.icon}{t(item.title)}
               </Link>
             </li>
           );

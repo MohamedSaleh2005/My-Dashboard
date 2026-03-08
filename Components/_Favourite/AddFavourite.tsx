@@ -10,11 +10,8 @@ export default function AddFavourite({ item }: Props) {
   const isFavourite = favourites.some(f => f.code === item.code)
 
   return (
-    <span
-      onClick={() => toggleFavourite(item)}
-      className={`cursor-pointer text-2xl transition-all duration-300 ${
-        isFavourite ? "text-yellow-400" : "text-gray-400 Rotate"
-      }`}
+    <span onClick={() => toggleFavourite(item)} className={`cursor-pointer text-2xl transition-all duration-300 
+      ${ isFavourite ? "text-yellow-400" : "text-gray-400 Rotate" }`}
     >
       <CiStar />
     </span>

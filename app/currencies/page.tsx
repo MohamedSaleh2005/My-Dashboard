@@ -1,4 +1,5 @@
-import CurrenciesPage from "@/Components/_currencies/CurrenciesPage";
+import CurrenciesPage from "@/Components/_Currencies/CurrenciesPage";
+
 
 
 

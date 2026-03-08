@@ -11,8 +11,8 @@ export const cards: Currencies[] = [
     {id:3 , currency:"JPY/USD" , img:"/jpy.png" , price:"AUD"},
     {id:4 , currency:"CAD/USD" , img:"/cad.png" , price:"CAD"},
 ]
-// Small Table
 
+// Small Table
 export const assets: Currencies[] = [
     {id:1 , currency:"BTC" , img:"/btc.png", price:"BTC"},
     {id:2 , currency:"BCH" , img:"/bch.png", price:"BCH"},

@@ -1,5 +1,3 @@
-"use client";
-
 import { useUser } from "@clerk/nextjs";
 import { useLanguageTransition } from "@/app/LanguageTransitionContext";
 import { useTranslation } from "react-i18next";
@@ -7,13 +5,11 @@ import { useTranslation } from "react-i18next";
 export default function Language() {
   const { changeLanguage } = useLanguageTransition();
   const { t } = useTranslation();
-  const { isSignedIn } = useUser(); // ✅ نعرف إذا المستخدم مسجل دخول
+  const { isSignedIn } = useUser();
 
   const handleChangeLanguage = (lang: "ar" | "en") => {
-    if (!isSignedIn) {
-      alert("الرجاء تسجيل الدخول لتغيير اللغة"); // تمنع التغيير
-      return;
-    }
+    if (!isSignedIn) return;
+
     changeLanguage(lang);
   };
 
@@ -22,19 +18,13 @@ export default function Language() {
       <span className="MyFont">{t("selectLanguage")}</span>
 
       <div className="flex gap-3">
-        <span
-          onClick={() => handleChangeLanguage("ar")}
-          className={`cursor-pointer transition-all duration-300 hover:scale-95 ${!isSignedIn ? "opacity-50 pointer-events-none" : ""}`}
-        >
+        <span onClick={() => handleChangeLanguage("ar")} className={`cursor-pointer transition-all duration-300 hover:scale-95 ${!isSignedIn ? "opacity-50 pointer-events-none" : ""}`}>
           {t("arabic")}
         </span>
 
         <span>|</span>
 
-        <span
-          onClick={() => handleChangeLanguage("en")}
-          className={`cursor-pointer transition-all duration-300 hover:scale-95 ${!isSignedIn ? "opacity-50 pointer-events-none" : ""}`}
-        >
+        <span onClick={() => handleChangeLanguage("en")} className={`cursor-pointer transition-all duration-300 hover:scale-95 ${!isSignedIn ? "opacity-50 pointer-events-none" : ""}`}>
           {t("english")}
         </span>
       </div>

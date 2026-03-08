@@ -32,7 +32,7 @@ type CurrencyContextType = {
   deleteFromHistory: (id: number) => void;
   result: number;
   setResult: (val: number) => void;
-  
+
 };
 
 const CurrencyContext = createContext<CurrencyContextType | undefined>(undefined);
@@ -59,16 +59,16 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // 🔥 تحديث LocalStorage كل مرة history يتغير
+  //  تحديث LocalStorage كل مرة history يتغير
   useEffect(() => {
     localStorage.setItem("currency_history", JSON.stringify(history));
   }, [history]);
 
-  // 🔥 إضافة عنصر للتاريخ
+  //  إضافة عنصر للتاريخ
   const addToHistory = () => {
     if (result !== 0) {
       const newItem: HistoryItem = {
-        id: Math.floor(Math.random() * 157), // رقم عشوائي
+        id: Math.floor(Math.random() * 157),
         amount,
         value,
         currency,
@@ -82,7 +82,7 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // 🔥 حذف عنصر من التاريخ
+  //  حذف عنصر من التاريخ
   const deleteFromHistory = (id: number) => {
     setHistory(prev => prev.filter(item => item.id !== id));
   };

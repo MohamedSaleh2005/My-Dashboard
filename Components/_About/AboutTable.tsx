@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export default function AboutTable() {
@@ -10,9 +8,7 @@ export default function AboutTable() {
 
       {/* Title */}
       <div>
-        <h4 className="MyFont text-2xl">
-          {t("about.table.title")}
-        </h4>
+        <h4 className="MyFont text-2xl">{t("about.table.title")}</h4>
         <p className="text-sm mt-2">{t("about.table.description")}</p>
       </div>
 

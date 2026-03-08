@@ -23,7 +23,7 @@ export function NotificationProvider({ children }: { children: ReactNode }) {
   );
 }
 
-// Hook لاستخدام Context بسهولة
+
 export function useNotification() {
   const context = useContext(NotificationContext);
   if (!context) {

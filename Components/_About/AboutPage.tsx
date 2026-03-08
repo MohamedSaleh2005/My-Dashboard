@@ -1,7 +1,6 @@
-"use client";
+"use client"
 
 import { useTranslation } from "react-i18next";
-
 import AboutAuth from './AboutAuth'
 import AboutConverter from './AboutConverter'
 import AboutFavorites from './AboutFavourite'
@@ -27,16 +26,16 @@ export default function AboutPage() {
 
       {/* جميع أقسام الـ About */}
       <div className="md:h-120 h-screen overflow-y-scroll no-scrollbar space-y-6">
-        <AboutProject/>
-        <AboutConverter/>
-        <AboutTable/>
-        <AboutFavorites/>
-        <AboutTheme/>
-        <AboutLanguage/>
-        <AboutAuth/>
-        <AboutFuture/>
-        <RateMe/>
-        <ContactMe/>
+        <AboutProject />
+        <AboutConverter />
+        <AboutTable />
+        <AboutFavorites />
+        <AboutTheme />
+        <AboutLanguage />
+        <AboutAuth />
+        <AboutFuture />
+        <RateMe />
+        <ContactMe />
       </div>
 
     </div>

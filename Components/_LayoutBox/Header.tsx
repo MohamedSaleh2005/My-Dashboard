@@ -1,5 +1,3 @@
-"use client";
-
 import { MdOutlinePlaylistPlay } from 'react-icons/md';
 import { useMemo } from 'react';
 import Alert from '../_Settings/Alert';
@@ -12,10 +10,9 @@ interface HeaderProps {
 }
 
 export default function Header({ onMenuClick }: HeaderProps) {
-  const { i18n } = useTranslation(); // ناخد الـ i18n عشان نحدد اللغة
+  const { i18n } = useTranslation();
 
   const today = useMemo(() => {
-    // لو اللغة عربية نخلي locale "ar-EG" عشان التاريخ بالعربي
     const locale = i18n.language === "ar" ? "ar-EG" : "en-US";
 
     return new Date().toLocaleDateString(locale, {
@@ -28,19 +25,19 @@ export default function Header({ onMenuClick }: HeaderProps) {
   }, [i18n.language]); // نحدث التاريخ لما اللغة تتغير
 
   return (
-    <div className="md:pl-45 z-10 fixed w-full">
-      <header className='Special text-md flex items-center justify-between py-2 px-8 shadow'>
+    <header className="md:pl-45 z-10 fixed w-full">
+      <div className='Special text-md flex items-center justify-between py-2 px-8 shadow'>
         <span className='md:hidden text-2xl cursor-pointer' onClick={onMenuClick}>
           <MdOutlinePlaylistPlay />
         </span>
         <h2>{today}</h2>
 
-        <div className='flex gap-3'>
+        <div className='flex gap-3 items-center'>
           <Alert />
-          <SettingBtn/>
+          <SettingBtn />
           <AuthBtn />
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 }

@@ -1,5 +1,3 @@
-"use client";
-import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
 import { useCurrency } from "@/app/DataContext";
 import { useFavourites } from "./FavouriteContext";
@@ -21,20 +19,11 @@ export default function FavouriteCurrencies() {
                 const price: number = rates?.[item.name.currencyCode] ? 1 / rates[item.name.currencyCode] : 0;
 
                 return (
-                    <div
-                        key={item.code}
-                        className="rounded-xl h-25 md:w-90 py-3 px-4 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-102 transition-all duration-300 flex flex-col justify-between"
-                    >
+                    <div key={item.code} className="rounded-xl h-25 md:w-90 py-3 px-4 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-102 transition-all duration-300 flex flex-col justify-between">
                         {/* Header: icon + currency code + status */}
                         <div className="flex items-center justify-between text-sm text-gray-400">
                             <div className="flex gap-3">
-                                <Image
-                                    width={20}
-                                    height={20}
-                                    src={item.name.icon}
-                                    alt={item.name.currencyCode}
-                                    className="rounded-full border"
-                                />
+                                <Image width={20} height={20} src={item.name.icon} alt={item.name.currencyCode} className="rounded-full border" />
                                 <span>{item.name.currencyCode}</span>
                             </div>
 
@@ -47,10 +36,7 @@ export default function FavouriteCurrencies() {
                         <div className="flex items-center justify-between text-sm">
                             <p className="mt-3 text-2xl font-semibold">${price.toFixed(6)}</p>
 
-                            <button
-                                className="mt-3 px-3 py-1 bg-red-500/80 cursor-pointer text-white rounded-md hover:bg-red-700 transition-all duration-300 text-sm"
-                                onClick={() => delFavo(item.code)}
-                            >
+                            <button onClick={() => delFavo(item.code)} className="mt-3 px-3 py-1 bg-red-500/80 cursor-pointer text-white rounded-md hover:bg-red-700 transition-all duration-300 text-sm">
                                 {t("delete")}
                             </button>
                         </div>

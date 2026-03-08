@@ -1,6 +1,6 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
-import i18n from "./Translate"; // إعداد i18n جاهز
+import i18n from "./Translate"; 
 
 
 type LanguageContextType = {
@@ -19,7 +19,7 @@ const changeLanguage = (lng: string) => {
 
   setTimeout(() => {
     i18n.changeLanguage(lng);
-    localStorage.setItem("language", lng); // 👈 نحفظ هنا
+    localStorage.setItem("language", lng); 
     setFade(false);
   }, 300);
 };

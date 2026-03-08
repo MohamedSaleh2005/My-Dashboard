@@ -1,4 +1,3 @@
-// FavouriteContext.tsx
 "use client"
 import { createContext, useContext, useEffect, useState, ReactNode } from "react"
 
@@ -61,7 +60,6 @@ export function FavouriteProvider({ children }: { children: ReactNode }) {
   )
 }
 
-// هوك للاستعمال في أي كمبوننت
 export function useFavourites() {
   const context = useContext(FavouriteContext)
   if (!context) throw new Error("useFavourites must be used within FavouriteProvider")

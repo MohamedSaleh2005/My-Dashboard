@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import CurrencyConverter from './CurrencyConverter';
 import MarketNews from './MarketNews';
 import ConverHistory from './ConverHistory';
@@ -11,7 +11,7 @@ export default function Converter() {
 
   return (
     <main className='mt-15 px-4'>
-
+        {/* Page Header */}
       <div className='flex justify-between items-center'>
         <div>
           <h2 className='MyFont font-bold'>{t("currencyConverter")}</h2>
@@ -21,15 +21,17 @@ export default function Converter() {
         <ThemeButton />
       </div>
 
-      <CurrencyProvider> 
-        <div className='md:flex items-center gap-5'>
-          <CurrencyConverter />
-          <MarketNews />
-        </div>
+      <CurrencyProvider>
+        {/* Page Body */}
+         <div className='md:flex items-center gap-5'>
+             <CurrencyConverter />
+             <MarketNews />
+          </div>
 
-        <div>
-          <ConverHistory />
-        </div>
+           <div>
+              <ConverHistory />
+           </div>
+
       </CurrencyProvider>
 
     </main>

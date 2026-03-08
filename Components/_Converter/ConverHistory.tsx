@@ -1,4 +1,3 @@
-"use client";
 import { MdDelete } from "react-icons/md";
 import { useCurrencyContext } from "./DataContext";
 import { useTranslation } from "react-i18next";
@@ -22,16 +21,7 @@ export default function ConverHistory() {
 
         {/* Table Header */}
         <div className="flex px-2 md:px-0 bg-[rgba(85,216,216,0.19)] text-sm font-serif rounded-t-lg">
-          {[
-            "id",
-            "amountShort",
-            "from",
-            "to",
-            "resultShort",
-            "date",
-            "time",
-            "action",
-          ].map((title) => {
+          {["id", "amountShort", "from", "to", "resultShort", "date", "time", "action",].map((title) => {
 
             if (title === "date") {
               return (
@@ -71,19 +61,11 @@ export default function ConverHistory() {
               </span>
 
               <span className="flex-1 text-center py-1 hidden md:flex">
-                {new Date(item.date).toLocaleDateString(locale, {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                })}
+                {new Date(item.date).toLocaleDateString(locale, { day: "2-digit", month: "2-digit", year: "numeric",})}
               </span>
 
               <span className="flex-1 text-center py-1 ml-2">
-                {new Date(item.date).toLocaleTimeString(locale, {
-                  hour: "2-digit",
-                  minute: "2-digit",
-                  hour12: false,
-                })}
+                {new Date(item.date).toLocaleTimeString(locale, { hour: "2-digit", minute: "2-digit", hour12: false, })}
               </span>
 
               <span className="flex-1 text-center py-1">

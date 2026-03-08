@@ -13,12 +13,8 @@ export default function Dashboard() {
         <main className='px-4 mt-15'>
             <div className='flex justify-between items-center'>
                 <div>
-                    <h2 className='MyFont font-bold'>
-                        {t("dashboard")}
-                    </h2>
-                    <p className='text-sm'>
-                        {t("liveExchangeRates")}
-                    </p>
+                    <h2 className='MyFont font-bold'>{t("dashboard")}</h2>
+                    <p className='text-sm'>{t("liveExchangeRates")}</p>
                 </div>
                 
                 <div>

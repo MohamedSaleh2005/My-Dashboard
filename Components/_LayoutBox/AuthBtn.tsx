@@ -1,4 +1,3 @@
-"use client";
 import { SignInButton } from "@clerk/nextjs";
 import { IoPersonAddSharp } from "react-icons/io5";
 

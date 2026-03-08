@@ -1,4 +1,3 @@
-"use client"
 import Image from 'next/image'
 import { assets } from './tybe'
 import { useCurrency } from '../../app/DataContext'
@@ -26,31 +25,16 @@ export default function SmallTable() {
           {assets.map((asset) => (
             <tr key={asset.id || asset.currency}>
               <td>
-                <Image
-                  width={17}
-                  height={17}
-                  src={asset.img}
-                  alt={asset.currency}
-                  className='mt-1'
-                />
+                <Image width={17} height={17} src={asset.img} alt={asset.currency} className='mt-1'/>
               </td>
 
               <td className="text-center">
-                {loading ? (
-                  <Skeleton width={40} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
-                ) : (
-                  asset.currency
-                )}
+                {loading ? (<Skeleton width={40} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>) : ( asset.currency)}
               </td>
 
               <td className="text-right">
-                {loading ? (
-                  <Skeleton width={50} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
-                ) : rates?.[asset.price] ? (
-                  `$${(1 / Number(rates[asset.price])).toFixed(4)}`
-                ) : (
-                  "-"
-                )}
+                {loading ? (<Skeleton width={50} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>) : rates?.[asset.price] ? (
+                  `$${(1 / Number(rates[asset.price])).toFixed(4)}`) : ("-")}
               </td>
             </tr>
           ))}

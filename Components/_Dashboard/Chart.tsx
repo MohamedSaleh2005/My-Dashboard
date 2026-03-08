@@ -1,4 +1,3 @@
-"use client"
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js'
 import { Bar } from 'react-chartjs-2'
 import { useCurrency } from '../../app/DataContext'
@@ -14,8 +13,7 @@ export default function Chart() {
 
   const labels = ['EUR', 'GBP', 'CAD', 'AUD', 'SGD', 'NZD', 'CHF']
 
-  const values = loading
-    ? Array(labels.length).fill(0)
+  const values = loading ? Array(labels.length).fill(0)
     : [
         1 / (rates.EUR || 1),
         1 / (rates.GBP || 1),
@@ -60,6 +58,7 @@ export default function Chart() {
 
   return (
     <section className="Special pb-10 pt-3 h-70 md:w-[75%] mt-5 shadow-[rgba(75,192,192,0.3)] shadow rounded-xl">
+
       <div className="flex justify-between text-gray-400 text-sm px-4 pb-2">
         <h3>{t("marketTrends")}</h3>
         <span>{t("updatedJustNow")}</span>
@@ -68,13 +67,7 @@ export default function Chart() {
       {loading ? (
         <div className="w-full h-60 flex justify-around items-end gap-2 px-4">
           {labels.map((i) => (
-            <Skeleton
-              key={i}
-              width={40}
-              height={200}
-              baseColor="var(--skeleton-base)"
-              highlightColor="var(--skeleton-highlight)"
-            />
+            <Skeleton key={i} width={40} height={200} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
           ))}
         </div>
       ) : (

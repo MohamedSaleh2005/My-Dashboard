@@ -15,7 +15,6 @@ export default function ThemeButton() {
     updateTheme()
 
     const observer = new MutationObserver(updateTheme)
-
     observer.observe(document.documentElement, {
       attributes: true,
       attributeFilter: ["class"],

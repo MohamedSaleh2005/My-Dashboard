@@ -1,4 +1,3 @@
-"use client";
 import Image from 'next/image';
 import { useCurrencyContext } from './DataContext';
 import { useTranslation } from "react-i18next";
@@ -9,9 +8,9 @@ export default function AmountConverter() {
 
   return (
     <div className="flex flex-col w-[40%]">
-      <div>
-        <span className="text-sm">{t("amount")}</span>
-      </div>
+
+      <span className="text-sm">{t("amount")}</span>
+
 
       <div className="flex border p-1 px-2 border-gray-400/60 rounded-sm mt-1 gap-3">
         <Image

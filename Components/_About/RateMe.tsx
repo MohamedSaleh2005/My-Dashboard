@@ -1,10 +1,10 @@
-"use client";
-import React, { useState, useEffect } from "react";
+"use client"
+import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 type StarRatingProps = {
   maxStars?: number;
-  storageKey?: string; // مفتاح الحفظ في Local Storage
+  storageKey?: string;
   onChange?: (rating: number) => void;
 };
 
@@ -18,7 +18,7 @@ export default function RateMe({ maxStars = 5, storageKey = "userRating", onChan
     if (saved) setRating(Number(saved));
   }, [storageKey]);
 
-  // Save rating to Local Storage whenever it changes
+  // Save rating to Local Storage 
   const handleRating = (value: number) => {
     setRating(value);
     localStorage.setItem(storageKey, value.toString());
@@ -27,7 +27,7 @@ export default function RateMe({ maxStars = 5, storageKey = "userRating", onChan
 
   return (
     <div className="flex flex-col items-center justify-center my-15">
-      
+
       {/* Title */}
       <h4 className="MyFont text-xl">
         {t("about.rateMe.title")}
@@ -41,11 +41,7 @@ export default function RateMe({ maxStars = 5, storageKey = "userRating", onChan
             <button
               key={starValue}
               type="button"
-              className={`text-3xl transition-colors cursor-pointer ${
-                starValue <= rating
-                  ? "text-yellow-400"
-                  : "text-gray-300 dark:text-gray-500"
-              }`}
+              className={`text-3xl transition-colors cursor-pointer ${starValue <= rating ? "text-yellow-400": "text-gray-300 dark:text-gray-500" }`}
               onClick={() => handleRating(starValue)}
             >
               ★

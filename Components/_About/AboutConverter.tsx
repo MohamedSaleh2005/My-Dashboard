@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export default function AboutConverter() {
@@ -19,10 +17,10 @@ export default function AboutConverter() {
         <p>{t("aboutConverter.description1")}</p>
 
         <ul className="space-y-2 ml-4 list-disc">
-          <li>{t("aboutConverter.list1")}</li>
-          <li>{t("aboutConverter.list2")}</li>
-          <li>{t("aboutConverter.list3")}</li>
-          <li>{t("aboutConverter.list4")}</li>
+            <li>{t("aboutConverter.list1")}</li>
+            <li>{t("aboutConverter.list2")}</li>
+            <li>{t("aboutConverter.list3")}</li>
+            <li>{t("aboutConverter.list4")}</li>
         </ul>
 
         <p>{t("aboutConverter.description2")}</p>

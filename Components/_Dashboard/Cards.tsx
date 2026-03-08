@@ -1,4 +1,3 @@
-"use client"
 import Image from "next/image"
 import { cards } from "./tybe"
 import { useCurrencySnapshot } from "./TrendHook"
@@ -16,6 +15,7 @@ export default function DashCard() {
 
     return (
         <section className="Special mt-4 md:w-[75%] flex flex-col px-3 py-3 rounded-xl">
+
             <div className="flex justify-between text-sm text-gray-400">
                 <h3>{t("liveCurrency")}</h3>
                 <span>{t("updatedJustNow")}</span>
@@ -34,53 +34,23 @@ export default function DashCard() {
                     }
 
                     return (
-                        <div
-                            key={card.id}
-                            className="rounded-xl py-3 px-2 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-105 transition-all duration-300"
-                        >
+                        <div key={card.id} className="rounded-xl py-3 px-2 shadow bg-[linear-gradient(315deg,rgba(75,192,192,0.3),transparent_50%)] hover:scale-105 transition-all duration-300">
                             <div className="flex items-center justify-between text-sm text-gray-400">
                                 <div className="flex items-center gap-2">
-                                    <Image
-                                        width={20}
-                                        height={20}
-                                        src={card.img}
-                                        alt={card.currency}
-                                        className="rounded-full border"
-                                    />
-                                    {loading ? (
-                                        <Skeleton width={50} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
-                                    ) : (
-                                        <h3>{card.currency}</h3>
-                                    )}
+                                    <Image width={20} height={20} src={card.img} alt={card.currency} className="rounded-full border" />
+                                    {loading ? (<Skeleton width={50} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)" />)
+                                        : (<h3>{card.currency}</h3>)}
                                 </div>
 
-                                <span
-                                    className={
-                                        trend === "up"
-                                            ? "text-green-500"
-                                            : trend === "down"
-                                            ? "text-red-500"
-                                            : "text-gray-400"
-                                    }
-                                >
-                                    {loading ? (
-                                        <Skeleton width={40} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
-                                    ) : trend === "up" ? (
-                                        `▲ ${percent.toFixed(2)}%`
-                                    ) : trend === "down" ? (
-                                        `▼ ${percent.toFixed(2)}%`
-                                    ) : (
-                                        t("00.00%")
-                                    )}
+                                <span className={trend === "up" ? "text-green-500" : trend === "down" ? "text-red-500" : "text-gray-400"}>
+                                    {loading ? (<Skeleton width={40} height={16} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)" />)
+                                        : trend === "up" ? (`▲ ${percent.toFixed(2)}%`) : trend === "down" ? (`▼ ${percent.toFixed(2)}%`) : (t("00.00%"))}
                                 </span>
+
                             </div>
 
                             <p className="mt-2 text-2xl font-semibold">
-                                {loading ? (
-                                    <Skeleton width={60} height={24} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)"/>
-                                ) : (
-                                    `$${price.toFixed(4)}`
-                                )}
+                                {loading ? (<Skeleton width={60} height={24} baseColor="var(--skeleton-base)" highlightColor="var(--skeleton-highlight)" />) : (`$${price.toFixed(4)}`)}
                             </p>
                         </div>
                     )

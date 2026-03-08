@@ -23,7 +23,6 @@ export function useDailyRatesSnapshot(rates: Record<string, number>) {
       const now = new Date();
       const currentHour = now.getHours();
       const today = now.toDateString();
-
       const lastSavedDay = localStorage.getItem("last_saved_day");
       const alreadySaved = lastSavedDay === today;
 

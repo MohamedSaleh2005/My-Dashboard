@@ -1,4 +1,3 @@
-"use client";
 import SearchBox from "./SearchBox";
 import { useTableContext } from "./TableContext";
 import { useTranslation } from "react-i18next";

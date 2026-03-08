@@ -1,5 +1,3 @@
-"use client";
-import React from "react";
 import { useTranslation } from "react-i18next";
 
 export default function AboutAuth() {
@@ -8,7 +6,7 @@ export default function AboutAuth() {
   return (
     <section className="pt-6 space-y-4">
 
-      {/* Title */}
+      {/* Title Head*/}
       <h4 className="MyFont text-2xl">
         🔐 {t("titl")}
       </h4>

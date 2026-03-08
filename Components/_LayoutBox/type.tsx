@@ -1,8 +1,8 @@
 import { ReactNode } from "react"
 import { BsCurrencyExchange } from "react-icons/bs"
 import { FaQuestionCircle, FaStar } from "react-icons/fa"
-import { IoPersonAddSharp, IoSettingsSharp } from "react-icons/io5"
-import { MdChangeCircle, MdDarkMode, MdDashboardCustomize, } from "react-icons/md"
+import {  IoSettingsSharp } from "react-icons/io5"
+import { MdChangeCircle, MdDashboardCustomize, } from "react-icons/md"
 
 type BaseItem = {
     id: number
@@ -13,6 +13,7 @@ type BaseItem = {
 type SidebarItem = BaseItem & {
     title: string
 }
+
 //Side Bar
 export const listitems: SidebarItem[] = [
     { id: 1, title: "Dashboard", link: "/", icon: <MdDashboardCustomize />, },

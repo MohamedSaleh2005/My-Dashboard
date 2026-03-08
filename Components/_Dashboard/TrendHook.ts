@@ -23,9 +23,7 @@ export function useCurrencySnapshot(rates: Record<string, number>) {
     const now = new Date();
     const hour = now.getHours();
     const todayKey = now.toDateString();
-
     const lastSnapshotDay = localStorage.getItem("last_snapshot_day");
-
     const isSnapshotTime = hour === 23;
     const alreadySavedToday = lastSnapshotDay === todayKey;
 
