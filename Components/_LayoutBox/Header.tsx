@@ -1,10 +1,11 @@
 "use client";
-import Link from 'next/link';
-import { navitems } from './type';
+
 import { MdOutlinePlaylistPlay } from 'react-icons/md';
 import { useMemo } from 'react';
 import Alert from '../_Settings/Alert';
 import { useTranslation } from "react-i18next";
+import AuthBtn from './AuthBtn';
+import SettingBtn from '../_Settings/SettingBtn';
 
 interface HeaderProps {
   onMenuClick: () => void;
@@ -36,16 +37,8 @@ export default function Header({ onMenuClick }: HeaderProps) {
 
         <div className='flex gap-3'>
           <Alert />
-          {navitems.map((item) => (
-            <Link
-              key={item.id}
-              href={item.link}
-              aria-label={item.label}
-              className='hover:-translate-y-0.5 transition-all duration-300'
-            >
-              {item.icon}
-            </Link>
-          ))}
+          <SettingBtn/>
+          <AuthBtn />
         </div>
       </header>
     </div>

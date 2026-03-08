@@ -23,11 +23,4 @@ export const listitems: SidebarItem[] = [
     { id: 6, title: "About", link: "/about", icon: <FaQuestionCircle /> },
 ] 
 
-type NavItem = BaseItem & {
-    label: string
-}
-//Nav Bar
-export const navitems: NavItem[] = [
-    { id: 2, link: "/settings", label: "Settings", icon: <IoSettingsSharp /> },
-    { id: 3, link: "/register", label: "Register", icon: <IoPersonAddSharp /> },
-]
+

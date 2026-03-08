@@ -70,7 +70,7 @@ export default function DashCard() {
                                     ) : trend === "down" ? (
                                         `▼ ${percent.toFixed(2)}%`
                                     ) : (
-                                        t("noChange")
+                                        t("00.00%")
                                     )}
                                 </span>
                             </div>

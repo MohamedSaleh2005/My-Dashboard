@@ -6,6 +6,7 @@ import i18n from "./Translate"; // إعداد i18n جاهز
 type LanguageContextType = {
   fade: boolean;
   changeLanguage: (lng: string) => void;
+  
 };
 
 const LanguageTransitionContext = createContext<LanguageContextType | undefined>(undefined);
@@ -37,3 +38,5 @@ export function useLanguageTransition() {
   if (!context) throw new Error("useLanguageTransition must be used within I18nProvider");
   return context;
 }
+
+

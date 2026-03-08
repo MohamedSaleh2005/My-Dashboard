@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
@@ -7,6 +6,10 @@ import { DataProvider } from "./DataContext";
 import { FavouriteProvider } from "@/Components/_Favourite/FavouriteContext";
 import { I18nProvider } from "./LanguageTransitionContext";
 import { ThemeProvider } from "./ThemeContext";
+import { ClerkProvider } from "@clerk/nextjs";
+import { NotificationProvider } from "./NotificationContext";
+
+
 
 const montserrat = Montserrat({
   variable: "--font-Montserrat",
@@ -14,53 +17,32 @@ const montserrat = Montserrat({
   weight: ["300", "500", "700"]
 });
 
-
 export const metadata: Metadata = {
   title: "Crypto Dashboard",
   description: "Real-time cryptocurrency dashboard built with Next.js",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          (function () {
-            try {
-              const theme = localStorage.getItem("DarkMode");
-              if (theme !== null) {
-                if (JSON.parse(theme)) {
-                  document.documentElement.classList.add("dark");
-                }
-              } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-                document.documentElement.classList.add("dark");
-              }
-            } catch (e) {}
-          })();
-        `,
-          }}
-        />
-      </head>
-      <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body className={`${montserrat.variable} antialiased md:overflow-hidden`}>
 
           <ThemeProvider>
-        <I18nProvider>
-          <LayoutBox> {/* to all*/}
-            <DataProvider>    {/* to all Component Curr*/}
-              <FavouriteProvider>      {/* to Favourite & currencies */}
-                {children}
-              </FavouriteProvider>
-            </DataProvider>
-          </LayoutBox>
-        </I18nProvider>
-        </ThemeProvider>
-      </body>
-    </html>
+            <I18nProvider>
+                <DataProvider>
+                  <FavouriteProvider>
+                    <NotificationProvider>
+              <LayoutBox>
+                      {children}
+              </LayoutBox>
+                    </NotificationProvider>
+                  </FavouriteProvider>
+                </DataProvider>
+            </I18nProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
