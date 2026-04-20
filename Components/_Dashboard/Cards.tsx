@@ -3,7 +3,6 @@ import { cards } from "./tybe"
 import { useCurrencySnapshot } from "./TrendHook"
 import { useCurrency } from "../../app/DataContext"
 import Skeleton from "react-loading-skeleton"
-import "react-loading-skeleton/dist/skeleton.css"
 import { useTranslation } from "react-i18next"
 
 type trends = "up" | "down" | "same"
@@ -14,14 +13,14 @@ export default function DashCard() {
     const { t } = useTranslation()
 
     return (
-        <section className="Special mt-4 md:w-[75%] flex flex-col px-3 py-3 rounded-xl">
+        <section className="Special mt-4 lg:w-[75%] flex flex-col px-3 py-3 rounded-xl shadow-sm">
 
             <div className="flex justify-between text-sm text-gray-400">
                 <h3>{t("liveCurrency")}</h3>
                 <span>{t("updatedJustNow")}</span>
             </div>
 
-            <div className="mt-4 grid grid-cols-2 md:grid-cols-4 gap-5">
+            <div className="mt-4 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                 {cards.map((card) => {
                     const price: number = rates?.[card.price] ? 1 / rates[card.price] : 0
                     const oldPrice: number | undefined = oldPrices?.[card.id]

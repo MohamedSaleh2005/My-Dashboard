@@ -9,7 +9,7 @@ export default function ConverHistory() {
   const locale = i18n.language === "ar" ? "ar-EG" : "en-GB";
 
   return (
-    <section className="Special pb-4 pt-2 px-2 h-75 md:h-60 mt-5 shadow-[rgba(75,192,192,0.3)] shadow rounded-xl">
+    <section className="Special pb-4 pt-2 px-2 lg:h-60 mt-4 shadow-sm rounded-xl">
 
       {/* Header */}
       <div className="flex items-center justify-between text-gray-400 text-sm">
@@ -40,7 +40,7 @@ export default function ConverHistory() {
         </div>
 
         {/* Table Body */}
-        <div className="h-55 md:h-40 overflow-y-auto no-scrollbar">
+        <div className=" min-h-60 md:min-h-120 lg:h-40 overflow-y-auto no-scrollbar">
           {history.map((item) => (
             <span
               key={item.id}

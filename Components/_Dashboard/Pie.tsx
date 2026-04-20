@@ -2,7 +2,6 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2'
 import { useCurrency } from '../../app/DataContext'
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { useTranslation } from 'react-i18next'
 
 ChartJS.register(ArcElement, Tooltip, Legend)
@@ -66,10 +65,11 @@ export default function PieChart() {
   }
 
   return (
-    <div className="Special md:h-70 mt-4 md:w-70 pt-2 rounded-xl m-auto flex flex-col">
-      <h3 className="text-sm m-auto pb-3 text-gray-400">
+    <div className="Special h-70 mt-4  py-2 rounded-xl m-auto flex flex-col shadow-sm">
+       <h3 className="text-sm  pb-3 m-auto text-gray-400">
         {t("topFiveCurrencies")}
       </h3>
+     <div className='w-70  m-auto items-center'>
 
       <div className="px-7 pb-7 flex justify-center items-center">
         {loading ? (
@@ -78,6 +78,7 @@ export default function PieChart() {
           <Doughnut data={data} options={options} />
         )}
       </div>
+     </div>
     </div>
   )
 }

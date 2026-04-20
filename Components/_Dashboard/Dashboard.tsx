@@ -22,12 +22,12 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            <div className='md:flex items-center gap-5'>
+            <div className='lg:flex items-center gap-5'>
                 <Cards />
                 <SmallTable />
             </div>
 
-            <div className='md:flex items-center gap-5'>
+            <div className='lg:flex items-center gap-5'>
                 <Chart />
                 <Pie />
             </div>

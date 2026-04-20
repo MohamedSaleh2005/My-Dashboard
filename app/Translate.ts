@@ -110,7 +110,7 @@ i18n.use(initReactI18next).init({
         dashboard: "Dashboard",
         marketTrends: "Market Trends",
         usdCurrency: "USD Currency",
-
+        marketNews: "Market News",
         liveCurrency: "Live Currency",
         // Converter
         news1: "The US dollar strengthened against major currencies following stronger manufacturing data and stable treasury yields.",
@@ -292,7 +292,7 @@ i18n.use(initReactI18next).init({
         news1: "ارتفع الدولار الأمريكي مقابل العملات الرئيسية بعد بيانات تصنيع قوية واستقرار عوائد السندات",
         news2: "يتوقع المحللون تراجع الدولار قليلاً مع تباطؤ التضخم واقتراب خفض أسعار الفائدة",
         news3: "زاد المستثمرون العالميون الطلب على أصول الدولار وسط التوترات الجيوسياسية وعدم استقرار نمو الأسواق الناشئة",
-        marketNews: "Market News",
+        marketNews: "اخبار السوق",
         add: "إضافة",
         convert: "تحويل",
         currencyConverter: "محول العملات",

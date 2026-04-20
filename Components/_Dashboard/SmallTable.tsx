@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { assets } from './tybe'
 import { useCurrency } from '../../app/DataContext'
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { useTranslation } from 'react-i18next'
 
 export default function SmallTable() {
@@ -10,7 +9,7 @@ export default function SmallTable() {
   const { t } = useTranslation()
 
   return (
-    <div className='Special h-36 mt-4 md:w-70 rounded-xl text-gray-400 text-sm px-4 py-1 flex'>
+    <div className='Special h-36 mt-4 lg:w-70 rounded-xl text-gray-400 text-sm px-4 py-1 flex shadow-sm'>
       <table className="w-full text-sm text-gray-400">
 
         <thead>

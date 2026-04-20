@@ -1,6 +1,12 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+} from "react";
 
 type ThemeContextType = {
   isDark: boolean;
@@ -28,14 +34,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [isDark, mounted]);
 
   const toggleTheme = () => {
-    setIsDark(prev => !prev);
+    setIsDark((prev) => !prev);
   };
 
-  // ⛔️ امنع الرندر لحد ما يحصل mount
+  const value = useMemo(() => ({ isDark, toggleTheme }), [isDark]);
+
   if (!mounted) return null;
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={value}>
       {children}
     </ThemeContext.Provider>
   );

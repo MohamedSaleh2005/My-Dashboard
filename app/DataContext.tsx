@@ -21,7 +21,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://api.currencyfreaks.com/v2.0/rates/latest?apikey=df8ef15a974d46fe926cc129f7caa513")
+        fetch("https://api.currencyfreaks.com/v2.0/rates/latest?apikey=6a492cf6585145689aef34eca6671f8c")
             .then(res => res.json())
             .then((data) => {
                 if (data.rates) setRates(data.rates);

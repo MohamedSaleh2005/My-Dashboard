@@ -11,7 +11,7 @@ export default function CurrencyList({ data }: Props) {
   const { loading } = useTableContext();
   const { t } = useTranslation();
 
-  if (loading) return Array.from({ length: 10 }).map((_, i) => <SkeletonRow key={i} />);
+  if (loading) return Array.from({ length: 18 }).map((_, i) => <SkeletonRow key={i} />);
   if (data.length === 0)
     return <div className="text-center text-gray-400 mt-6">{t("noResultsFound")}</div>;
 

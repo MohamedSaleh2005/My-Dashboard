@@ -25,7 +25,7 @@ export default function AboutPage() {
       </div>
 
       {/* جميع أقسام الـ About */}
-      <div className="md:h-120 h-screen overflow-y-scroll no-scrollbar space-y-6">
+      <div className="lg:h-120 h-250 overflow-y-scroll no-scrollbar space-y-6">
         <AboutProject />
         <AboutConverter />
         <AboutTable />

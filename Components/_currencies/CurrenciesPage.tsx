@@ -8,7 +8,7 @@ export default function CurrenciesPage() {
   const { t } = useTranslation();
 
   return (
-    <div className="px-4 mt-15 w-full h-120">
+    <div className="px-4 mt-15">
       <div className='flex justify-between items-center'>
         <div>
           <h2 className='MyFont font-bold'>{t("currenciesTable")}</h2>

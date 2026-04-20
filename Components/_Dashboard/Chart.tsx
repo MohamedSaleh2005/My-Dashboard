@@ -2,7 +2,6 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 import { Bar } from 'react-chartjs-2'
 import { useCurrency } from '../../app/DataContext'
 import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
 import { useTranslation } from 'react-i18next'
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
@@ -57,7 +56,7 @@ export default function Chart() {
   }
 
   return (
-    <section className="Special pb-10 pt-3 h-70 md:w-[75%] mt-5 shadow-[rgba(75,192,192,0.3)] shadow rounded-xl">
+    <section className="Special pb-10 pt-3 h-70 lg:w-[75%] mt-5  shadow-sm rounded-xl">
 
       <div className="flex justify-between text-gray-400 text-sm px-4 pb-2">
         <h3>{t("marketTrends")}</h3>

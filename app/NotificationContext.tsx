@@ -1,7 +1,6 @@
 "use client";
 import { createContext, useContext, useState, ReactNode } from "react";
 
-// شكل الداتا اللي هيتشارك
 interface NotificationContextType {
   isActive: boolean;
   toggleNotification: () => void;
@@ -10,7 +9,6 @@ interface NotificationContextType {
 // إنشاء Context
 const NotificationContext = createContext<NotificationContextType | undefined>(undefined);
 
-// Provider
 export function NotificationProvider({ children }: { children: ReactNode }) {
   const [isActive, setIsActive] = useState(false);
 

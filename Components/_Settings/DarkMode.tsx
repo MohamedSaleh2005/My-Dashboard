@@ -5,7 +5,7 @@ import { useUser } from "@clerk/nextjs";
 export default function DarkBtn() {
   const { t } = useTranslation();
   const { isDark, toggleTheme } = useTheme();
-  const { isSignedIn } = useUser(); //  هل المستخدم مسجل دخول
+  const { isSignedIn } = useUser(); 
 
   const handleClick = () => {
     if (!isSignedIn) return;

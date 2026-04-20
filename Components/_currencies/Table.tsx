@@ -7,7 +7,7 @@ export default function Table() {
   const { t } = useTranslation();
 
   return (
-    <div className="Special p-3 h-170 md:h-115 mt-3 flex flex-col">
+    <div className="Special p-3 h-170 md:h-250 lg:h-110 mt-3 flex flex-col shadow-sm">
       <TableHeader />
 
       <div className="w-full bg-[rgba(75,192,192,0.19)] h-10 mt-2 flex justify-between items-center font-bold px-3 text-sm rounded">

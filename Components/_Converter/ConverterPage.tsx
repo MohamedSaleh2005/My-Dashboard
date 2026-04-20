@@ -23,7 +23,7 @@ export default function Converter() {
 
       <CurrencyProvider>
         {/* Page Body */}
-         <div className='md:flex items-center gap-5'>
+         <div className='lg:flex items-center gap-5'>
              <CurrencyConverter />
              <MarketNews />
           </div>

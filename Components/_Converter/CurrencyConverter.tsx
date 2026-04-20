@@ -8,7 +8,7 @@ export default function CurrencyConverter() {
   const { t } = useTranslation();
 
   return (
-    <section className='Special mt-4 md:w-[60%] flex flex-col p-3 rounded-xl h-50'>
+    <section className='Special mt-4 lg:w-[60%] flex flex-col p-3 rounded-xl h-50 shadow-sm'>
       
       <div className="flex justify-between items-center text-sm text-gray-400">
         <h3>{t("liveExchangeCurrency")}</h3>

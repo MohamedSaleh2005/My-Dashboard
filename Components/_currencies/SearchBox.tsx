@@ -16,7 +16,7 @@ export default function SearchBox({ value, onChange }: Props) {
 
             <input
                 type="text"
-                className="Special outline-none px-1 text-sm w-full text-gray-400"
+                className="Special outline-none p-1 text-sm w-full text-gray-400"
                 placeholder={t("search")}  
                 value={value}
                 onChange={(e) => onChange(e.target.value)}
