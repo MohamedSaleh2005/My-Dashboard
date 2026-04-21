@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<h1 align="center">📊 Dashboard Application</h1>
 
-## Getting Started
+<p align="center">
+A feature-rich dashboard built to handle real-time data and user interaction with a modern UI.
+</p>
 
-First, run the development server:
+<hr/>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<h2>✨ Overview</h2>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<p align="center">
+This dashboard provides a complete data management experience including analytics, currency conversion, and CRUD operations.
+Designed for scalability and performance.
+</p>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+<hr/>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+<h2>🚀 Key Features</h2>
 
-## Learn More
+<p align="center">
+📱 Responsive Design &nbsp; | &nbsp;
+🌙 Dark/Light Mode &nbsp; | &nbsp;
+🔐 Authentication &nbsp; | &nbsp;
+🌐 API Integration &nbsp; | &nbsp;
+💱 Currency Converter &nbsp; | &nbsp;
+🔍 Search System &nbsp; | &nbsp;
+📊 CRUD Tables &nbsp; | &nbsp;
+🌍 EN/AR Support &nbsp; | &nbsp;
+💾 Local Storage
+</p>
 
-To learn more about Next.js, take a look at the following resources:
+<hr/>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<h2>🛠️ Tech Stack</h2>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+<p align="center">
+<strong>React</strong> • <strong>Next.js</strong> • <strong>TypeScript</strong> • <strong>Tailwind CSS</strong>
+</p>
 
-## Deploy on Vercel
+<hr/>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<h2>📸 Preview</h2>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p align="center">
+  <a href="https://my-dashboard-topaz-nu.vercel.app/">
+    <img src="https://raw.githubusercontent.com/MohamedSaleh2005/MohamedSaleh2005/main/Dashboard.png" width="700"/>
+  </a>
+</p>
+
+<hr/>
+
+<h2>🌍 Live Demo</h2>
+
+<p align="center">
+https://my-dashboard-topaz-nu.vercel.app/
+</p>
+
+<hr/>
+
+<h2>📈 Highlights</h2>
+
+<p align="center">
+Scalable structure • Smooth UX • Real-time data handling
+</p>
+
+<hr/>
+
+<h2>🧑‍💻 Author</h2>
+
+<p align="center">
+<strong>Mohamed Saleh</strong><br/>
+Front-End Developer
+</p>
